@@ -10,12 +10,18 @@
       <root url="jar://$PROJECT_DIR$/lib/spring-beans-4.3.9.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-core-4.3.9.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-4.3.9.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-logging-1.2.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-javadoc.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-sources.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-aop-4.3.9.RELEASE-sources.jar!/" />
     </SOURCES>
