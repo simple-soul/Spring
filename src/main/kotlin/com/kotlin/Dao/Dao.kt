@@ -17,17 +17,20 @@ class StudentDao
     @Test
     fun add()
     {
+        //设置数据库信息
         var dm = DriverManagerDataSource()
         dm.setDriverClassName("com.mysql.jdbc.Driver")
         dm.url = "jdbc:mysql://localhost:3306/test"
         dm.username = "root"
         dm.password = "gg123456"
 
+        //创建JdbcTemplate对象，设置数据源
         var template = JdbcTemplate(dm)
 
-        var sql = "insert into user values(?, ?)"
-        var raw = template.update(sql, "小明", 16)
+        //使用JdbcTemplate对象的方法操作数据
+        var sql = "insert into student value(?, ?)"
+        val row = template.update(sql, "小黄", "fsfd")
 
-        println("add $raw")
+        println("add $row")
     }
 }
