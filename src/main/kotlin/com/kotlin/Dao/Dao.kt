@@ -1,6 +1,7 @@
 package com.kotlin.Dao
 
 import com.kotlin.annotations.Bean
+import org.junit.Test
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.datasource.DriverManagerDataSource
 import org.springframework.stereotype.Component
@@ -11,18 +12,22 @@ import org.springframework.stereotype.Component
 
 @Bean
 @Component(value = "studentDao")
-data class StudentDao(var name:String)
+class StudentDao
 {
+    @Test
     fun add()
     {
         var dm = DriverManagerDataSource()
         dm.setDriverClassName("com.mysql.jdbc.Driver")
-        dm.url = "jdbc:mysql///test"
+        dm.url = "jdbc:mysql://localhost:3306/test"
         dm.username = "root"
         dm.password = "gg123456"
 
         var template = JdbcTemplate(dm)
 
-        println("add in dao")
+        var sql = "insert into user values(?, ?)"
+        var raw = template.update(sql, "小明", 16)
+
+        println("add $raw")
     }
 }

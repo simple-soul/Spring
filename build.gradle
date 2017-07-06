@@ -46,8 +46,11 @@ dependencies {
     compile "aspectj:aspectjweaver:1.5.4"
     compile "aopalliance:aopalliance:1.0"
     //spring的jdbc操作依赖
+    compile "mysql:mysql-connector-java:5.1.38"
     compile "org.springframework:spring-jdbc:4.3.9.RELEASE"
     compile "org.springframework:spring-tx:4.3.9.RELEASE"
+    //springMVC的依赖
+    compile "org.springframework:spring-webmvc:4.3.9.RELEASE"
 
     testCompile "junit:junit:4.12"
 }

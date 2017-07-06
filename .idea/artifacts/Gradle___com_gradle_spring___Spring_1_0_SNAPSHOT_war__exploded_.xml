@@ -25,11 +25,14 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-aspects:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Gradle: mysql:mysql-connector-java:5.1.38" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-jdbc:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-tx:4.3.9.RELEASE" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.2-5" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
+          <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.9.RELEASE" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.2-5" />
           <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
         </element>
