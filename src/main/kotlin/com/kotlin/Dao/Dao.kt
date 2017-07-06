@@ -20,7 +20,7 @@ class StudentDao
         //设置数据库信息
         var dm = DriverManagerDataSource()
         dm.setDriverClassName("com.mysql.jdbc.Driver")
-        dm.url = "jdbc:mysql://localhost:3306/test"
+        dm.url = "jdbc:mysql://localhost:3306/test2?useUnicode=true&amp;characterEncoding=UTF-8"
         dm.username = "root"
         dm.password = "gg123456"
 
@@ -28,8 +28,8 @@ class StudentDao
         var template = JdbcTemplate(dm)
 
         //使用JdbcTemplate对象的方法操作数据
-        var sql = "insert into student value(?, ?)"
-        val row = template.update(sql, "小黄", "fsfd")
+        var sql = "insert into whetherjoinclass value(?, ?, ?)"
+        val row = template.update(sql, "小黄", "你", "好")
 
         println("add $row")
     }
