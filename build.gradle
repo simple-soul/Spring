@@ -49,6 +49,7 @@ dependencies {
     compile "mysql:mysql-connector-java:5.1.38"
     compile "org.springframework:spring-jdbc:4.3.9.RELEASE"
     compile "org.springframework:spring-tx:4.3.9.RELEASE"
+
     compile "org.springframework:spring-test:4.3.9.RELEASE"
     //springMVC的依赖
     compile "org.springframework:spring-webmvc:4.3.9.RELEASE"

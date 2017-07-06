@@ -19,7 +19,7 @@ class TestController : Controller
         mav.addObject("studentList", studentList)
 
         //指定视图
-        mav.viewName = ""
+        mav.viewName = "index.jsp"
         return mav
     }
 
