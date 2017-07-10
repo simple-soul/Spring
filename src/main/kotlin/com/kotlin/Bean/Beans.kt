@@ -68,3 +68,6 @@ data class MyBook(var name: String)
         println("方法之后")
     }
 }
+
+@Bean
+data class User(var name: String, var age: Int)

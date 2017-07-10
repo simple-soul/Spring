@@ -1,7 +1,6 @@
 package com.kotlin.controller
 
 import com.kotlin.Bean.Student
-import javaa.User
 import org.springframework.web.servlet.ModelAndView
 import org.springframework.web.servlet.mvc.Controller
 import javax.servlet.http.HttpServletRequest
