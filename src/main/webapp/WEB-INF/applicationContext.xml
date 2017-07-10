@@ -8,6 +8,20 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 ">
 
+    <!--配置c3p0连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入属性值-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="user" value="root"/>
+        <property name="password" value="gg123456"/>
+
+    </bean>
+
+    <bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
     <!--&lt;!&ndash;有参注入属性&ndash;&gt;-->
     <!--<bean id="student" class="com.kotlin.Bean.Student">-->
     <!--<constructor-arg name="name" value="张三"/>-->
