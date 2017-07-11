@@ -23,4 +23,13 @@ data class StudentService(var s: String)
         dao.add()
         println("add in service")
     }
+
+    fun transferAccount()
+    {
+
+        dao.payMoney()
+
+        dao.collectMoney()
+
+    }
 }

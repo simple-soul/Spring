@@ -2,7 +2,9 @@ package com.kotlin
 
 import com.kotlin.Bean.Book
 import com.kotlin.Bean.Student
+import com.kotlin.Bean.User
 import com.kotlin.Service.StudentService
+import com.kotlin.Service.UserService
 import org.junit.Test
 import org.springframework.context.support.FileSystemXmlApplicationContext
 
@@ -17,17 +19,11 @@ class main
     {
         //加载Spring配置文件，创建对象
         val context = FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml")
+        //service的id
+        val userService = context.getBean("userService") as UserService
+        userService.payMoney()
 
-//        val student = context.getBean("student") as Student
-//        println(student)
-//        student.print()
-
-
-        val service = context.getBean("studentService") as StudentService
-        service.add()
-
-//        val book = context.getBean("book") as Book
-//        book.add()
-
+//        val user = context.getBean("bean") as User
+//        println(user)
     }
 }

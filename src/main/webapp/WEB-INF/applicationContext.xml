@@ -1,26 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:p="http://www.springframework.org/schema/p"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--配置c3p0连接池-->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <!--注入属性值-->
-        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
-        <property name="user" value="root"/>
-        <property name="password" value="gg123456"/>
+    <!-- 使用无参构造实现bean的创建 -->
+    <!--<bean id="user" class="com.kotlin.Bean.User"></bean>-->
 
-    </bean>
+    <!-- 用包级函数实现静态工厂方式构建bean -->
+    <!--<bean id="bean" class="com.kotlin.utils.UserFactoryKt" factory-method="getUser"></bean>-->
+    <!-- 用伴生对象实现静态工厂方式构建bean -->
+    <!--<bean id="bean2" class="com.kotlin.utils.UserFactory" factory-method="getUser"></bean>-->
 
-    <bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
+    <!-- 使用实例工厂创建bean对象 -->
+    <!-- 首先创建工厂对象 -->
+    <!--<bean id="userFactory" class="com.kotlin.utils.UserFactory"></bean>-->
+    <!--<bean id="bean3" factory-bean="userFactory" factory-method="getUser2"></bean>-->
+
+
+    <!--有参构造注入属性值-->
+    <!--<bean id="user" class="com.kotlin.Bean.User">-->
+        <!--&lt;!&ndash;配置属性值&ndash;&gt;-->
+        <!--<constructor-arg name="name" value="tom"/>-->
+        <!--<constructor-arg name="age" value="35"/>-->
+    <!--</bean>-->
+
+    <!--set方法注入-->
+    <!--<bean id="user2" class="com.kotlin.Bean.User">-->
+        <!--<property name="name" value="barry"/>-->
+        <!--<property name="age" value="23"/>-->
+    <!--</bean>-->
+
+
+    <!--对象注入-->
+    <!--配置UserDao-->
+    <!--<bean id="userDao" class="com.kotlin.Dao.UserDao"></bean>-->
+    <!--<bean id="userService" class="com.kotlin.Service.UserService">-->
+        <!--name为UserService中属性的名字-->
+        <!--由于数据类的特殊性，用constructor-arg和property都是可以的-->
+        <!--<constructor-arg name="userDao" ref="userDao"/>-->
+        <!--<property name="userDao" ref="userDao"/>-->
+    <!--</bean>-->
+
+
+
+
 
     <!--&lt;!&ndash;有参注入属性&ndash;&gt;-->
     <!--<bean id="student" class="com.kotlin.Bean.Student">-->
@@ -33,14 +67,14 @@
     <!--</bean>-->
 
     <!--注入对象类型的属性-->
-    <!--<bean id="studentDao" claStudentDaotDao"/>-->
+    <!--<bean id="studentDao" class="StudentDao"/>-->
 
-    <!--<bean id="studentService" claStudentServicevice">-->
+    <!--<bean id="studentService" class="StudentService">-->
         <!--<property name="dao" ref="studentDao"/>-->
     <!--</bean>-->
 
     <!--p名称空间注入-->
-    <!--<bean id="student" claStudentdent" p:age="26"/>-->
+    <!--<bean id="student" class="com.kotlin.Bean.User" p:name="26"/>-->
 
     <!--注入复杂类型属性-->
     <!--<bean id="student" class="com.kotlin.Bean.Student">-->
@@ -84,4 +118,20 @@
 
     <!--2.只扫描属性上面的注解-->
     <!--<context:annotation-config ></context:annotation-config>-->
+
+
+
+    <!--配置c3p0连接池-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <!--注入属性值-->
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="user" value="root"/>
+        <property name="password" value="gg123456"/>
+
+    </bean>
+
+    <bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
 </beans>

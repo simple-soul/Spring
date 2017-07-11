@@ -25,12 +25,26 @@ data class StudentDao(var name: String)
     fun add()
     {
         var sql = "insert into student value(? ,?, ?, ?)"
-        template.update(sql, null, "小明", true, 12)
+        template.update(sql, null, "小黄", true, 20, 1000)
         println("add in Dao")
     }
+
+    fun payMoney()
+    {
+        val sql = "update student set money=money-? where name=?"
+        template.update(sql, 200, "小黄")
+    }
+
+    fun collectMoney()
+    {
+        val sql = "update student set money=money+? where name=?"
+        template.update(sql, 200, "小明")
+    }
+
 }
 
-class UserDao
+
+class UsersDao
 {
     @Test
     fun add()
@@ -41,8 +55,8 @@ class UserDao
         var template = JdbcTemplate(dm)
 
         //使用JdbcTemplate对象的方法操作数据
-        var sql = "insert into user value(?, ?)"
-        val row = template.update(sql, "小明", 18)
+        var sql = "insert into student value(?, ?,?,?,?)"
+        val row = template.update(sql, null, "小黄",false, 18, 1000)
 
         println("add $row")
     }
@@ -118,6 +132,7 @@ class UserDao
         dataSources.password = "gg123456"
     }
 }
+
 class MyRowMapper: RowMapper<User>
 {
     override fun mapRow(rs: ResultSet?, rowNum: Int): User
