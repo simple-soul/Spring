@@ -13,7 +13,7 @@ public class TestIOC
 	public void test()
 	{
 		//1.加载Spring配置文件，创建对象
-		ApplicationContext context = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/AOP.xml");
+		ApplicationContext context = new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml");
 
 		//2.
 //				User user = (User) context.getBean("user");

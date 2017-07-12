@@ -1,6 +1,5 @@
 package com.kotlin
 
-import com.kotlin.Bean.Book
 import com.kotlin.Bean.Student
 import com.kotlin.Bean.User
 import com.kotlin.Service.StudentService
@@ -20,10 +19,14 @@ class main
         //加载Spring配置文件，创建对象
         val context = FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml")
         //service的id
-        val userService = context.getBean("userService") as UserService
-        userService.payMoney()
+//        val userService = context.getBean("userService") as UserService
+//        userService.payMoney()
 
-//        val user = context.getBean("bean") as User
-//        println(user)
+        val user = context.getBean("user") as User
+        user.add()
+
+
+//        val book = context.getBean("book") as Book
+//        book.add()
     }
 }

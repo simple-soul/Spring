@@ -14,6 +14,8 @@
                         http://www.springframework.org/schema/tx
                         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!--IOC-->
+
     <!-- 使用无参构造实现bean的创建 -->
     <!--<bean id="user" class="com.kotlin.Bean.User"></bean>-->
 
@@ -26,7 +28,6 @@
     <!-- 首先创建工厂对象 -->
     <!--<bean id="userFactory" class="com.kotlin.utils.UserFactory"></bean>-->
     <!--<bean id="bean3" factory-bean="userFactory" factory-method="getUser2"></bean>-->
-
 
     <!--有参构造注入属性值-->
     <!--<bean id="user" class="com.kotlin.Bean.User">-->
@@ -41,7 +42,6 @@
         <!--<property name="age" value="23"/>-->
     <!--</bean>-->
 
-
     <!--对象注入-->
     <!--配置UserDao-->
     <!--<bean id="userDao" class="com.kotlin.Dao.UserDao"></bean>-->
@@ -50,27 +50,6 @@
         <!--由于数据类的特殊性，用constructor-arg和property都是可以的-->
         <!--<constructor-arg name="userDao" ref="userDao"/>-->
         <!--<property name="userDao" ref="userDao"/>-->
-    <!--</bean>-->
-
-
-
-
-
-    <!--&lt;!&ndash;有参注入属性&ndash;&gt;-->
-    <!--<bean id="student" class="com.kotlin.Bean.Student">-->
-    <!--<constructor-arg name="name" value="张三"/>-->
-    <!--</bean>-->
-
-    <!--set方法注入属性-->
-    <!--<bean id="student" class="com.kotlin.Bean.Student">-->
-        <!--<property name="age" value="12"/>-->
-    <!--</bean>-->
-
-    <!--注入对象类型的属性-->
-    <!--<bean id="studentDao" class="StudentDao"/>-->
-
-    <!--<bean id="studentService" class="StudentService">-->
-        <!--<property name="dao" ref="studentDao"/>-->
     <!--</bean>-->
 
     <!--p名称空间注入-->
@@ -120,6 +99,53 @@
     <!--<context:annotation-config ></context:annotation-config>-->
 
 
+    <!--AOP-->
+
+    <!--1.配置对象-->
+    <!--<bean id="book" class="javaa.Book"></bean>-->
+    <!--<bean id="mybook" class="javaa.MyBook"></bean>-->
+
+    <!--<bean id="user" class="com.kotlin.Bean.User">-->
+        <!--<constructor-arg name="name" value="tom"/>-->
+        <!--<constructor-arg name="age" value="48"/>-->
+    <!--</bean>-->
+    <!--<bean id="advice" class="com.kotlin.Bean.Advice">-->
+        <!--<constructor-arg name="content" value="fadfa"/>-->
+    <!--</bean>-->
+
+    <!--2.配置aop操作-->
+    <!--<aop:config>-->
+        <!--2.1配置切入点-->
+        <!--<aop:pointcut id="pointcut" expression="execution(public String com.kotlin.Bean.User.add(..))"/>-->
+
+        <!--2.2配置切面 将增强用到方法上-->
+        <!--<aop:aspect ref="advice">-->
+            <!--选择用来增强的方法和需要增强的切入点-->
+            <!--<aop:before method="before" pointcut-ref="pointcut"/>-->
+            <!--<aop:after-returning method="afterResult" pointcut-ref="pointcut" returning="result"/>-->
+            <!--<aop:after method="after" pointcut-ref="pointcut" />-->
+            <!--<aop:around method="around" pointcut-ref="pointcut" />-->
+            <!--<aop:after-throwing method="exception" pointcut-ref="pointcut" throwing="ex"/>-->
+
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+    
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="point" expression="execution(public String javaa.Book.add(..))"/>-->
+        <!--<aop:aspect ref="mybook">-->
+            <!--<aop:after-returning method="after" pointcut-ref="point" returning="obj"/>-->
+            <!--<aop:around method="around" pointcut-ref="point"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <!--开启aop自动扫描代理-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+
+
+
+    <!--jdbc操作-->
 
     <!--配置c3p0连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">

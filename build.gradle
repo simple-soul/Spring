@@ -54,6 +54,7 @@ dependencies {
 
     //springMVC的依赖
     compile "org.springframework:spring-webmvc:4.3.9.RELEASE"
+    compile "org.springframework:spring-web:4.3.9.RELEASE"
     compile "javax.servlet:jstl:1.2"
     compile "javax.servlet:servlet-api:2.5"
     compile "javax.servlet.jsp:jsp-api:2.2"

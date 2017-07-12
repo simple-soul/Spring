@@ -1,10 +1,10 @@
 package com.kotlin.Dao
 
 import com.kotlin.annotations.Bean
-import org.springframework.stereotype.Component
+import org.springframework.stereotype.Repository
 
 @Bean
-@Component(value = "userDao")
+@Repository(value = "userDao")
 data class UserDao(var name : String)
 {
     fun payMoney()
