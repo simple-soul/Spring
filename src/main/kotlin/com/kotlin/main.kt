@@ -19,14 +19,11 @@ class main
         //加载Spring配置文件，创建对象
         val context = FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml")
         //service的id
-//        val userService = context.getBean("userService") as UserService
-//        userService.payMoney()
+        val studentService = context.getBean("studentService") as StudentService
+        studentService.transferAccount()
 
-        val user = context.getBean("user") as User
-        user.add()
+//        val user = context.getBean("user") as User
+//        user.add()
 
-
-//        val book = context.getBean("book") as Book
-//        book.add()
     }
 }

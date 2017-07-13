@@ -9,6 +9,7 @@ import org.junit.Test
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Repository
 import java.sql.ResultSet
 import javax.annotation.Resource
 
@@ -17,7 +18,7 @@ import javax.annotation.Resource
  */
 
 @Bean
-@Component(value = "studentDao")
+@Repository(value = "studentDao")
 data class StudentDao(var name: String)
 {
     @Resource(name="template")private lateinit var template: JdbcTemplate
@@ -33,6 +34,7 @@ data class StudentDao(var name: String)
     {
         val sql = "update student set money=money-? where name=?"
         template.update(sql, 200, "小黄")
+//        var a = 4/0
     }
 
     fun collectMoney()
@@ -127,7 +129,7 @@ class UsersDao
     {
         var dataSources = ComboPooledDataSource();
         dataSources.driverClass = "com.mysql.jdbc.Driver"
-        dataSources.jdbcUrl = "jdbc:mysql://lo  calhost:3306/test"
+        dataSources.jdbcUrl = "jdbc:mysql://localhost:3306/test"
         dataSources.user = "root"
         dataSources.password = "gg123456"
     }

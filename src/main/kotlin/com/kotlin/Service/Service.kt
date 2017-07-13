@@ -4,6 +4,7 @@ import com.kotlin.Dao.StudentDao
 import com.kotlin.annotations.Bean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import javax.annotation.Resource
 
 /**
@@ -12,11 +13,10 @@ import javax.annotation.Resource
 
 @Bean
 @Service(value = "studentService")
-data class StudentService(var s: String)
+@Transactional
+data class StudentService(@Resource(name = "studentDao")var dao: StudentDao)
 {
 //    @Autowired lateinit var dao: StudentDao
-
-    @Resource(name = "studentDao") lateinit var dao: StudentDao
 
     fun add()
     {
