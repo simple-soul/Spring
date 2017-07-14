@@ -27,20 +27,10 @@
     <mvc:annotation-driven/>
 
 
-    <!--配置handler-->
-    <!--name为url-->
-    <bean name="/queryItems.action" class="com.kotlin.controller.TestController"/>
-
-    <!--处理器映射器
-    将bean的name作为url进行查找，需要在配置handler时配置beanname-->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
-
-    <!--处理器适配器
-    所有适配器都继承HandlerAdapter借接口-->
-    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>
-
     <!--视图解析器
     解析jsp，默认使用jstl标签-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+    </bean>
 
 </beans>

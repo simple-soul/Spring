@@ -17,7 +17,7 @@
     <!--启用spring基于annotation的DI-->
     <context:annotation-config></context:annotation-config>
 
-    <!--将Controller除外-->
+    <!--aop扫描，将Controller除外-->
     <context:component-scan base-package="com.kotlin">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
@@ -101,7 +101,7 @@
 
     <!--注解扫描-->
     <!--1.到包中扫描类，方法，属性上面的注解-->
-    <context:component-scan base-package="com.kotlin"></context:component-scan>
+    <!--<context:component-scan base-package="com.kotlin"></context:component-scan>-->
 
     <!--2.只扫描属性上面的注解-->
     <!--<context:annotation-config ></context:annotation-config>-->
@@ -147,7 +147,7 @@
     <!--</aop:config>-->
 
     <!--开启aop自动扫描代理-->
-    <!--<aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 
 

@@ -14,9 +14,8 @@ import javax.annotation.Resource
 @Bean
 @Service(value = "studentService")
 @Transactional
-data class StudentService(@Resource(name = "studentDao")var dao: StudentDao)
+data class StudentService(@Autowired var dao: StudentDao)
 {
-//    @Autowired lateinit var dao: StudentDao
 
     fun add()
     {
@@ -30,6 +29,8 @@ data class StudentService(@Resource(name = "studentDao")var dao: StudentDao)
         dao.payMoney()
 
         dao.collectMoney()
+
+        println("交易成功 ")
 
     }
 }
