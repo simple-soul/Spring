@@ -11,26 +11,15 @@ import javax.annotation.Resource
  * Created by simple_soul on 2017/6/21.
  */
 
-@Bean
 @Service(value = "studentService")
-@Transactional
-data class StudentService(@Autowired var dao: StudentDao)
+open class StudentService
 {
+    @Autowired lateinit var studentDao: StudentDao
 
-    fun add()
+    fun account()
     {
-        dao.add()
-        println("add in service")
-    }
+        studentDao.payMoney()
 
-    fun transferAccount()
-    {
-
-        dao.payMoney()
-
-        dao.collectMoney()
-
-        println("交易成功 ")
-
+        studentDao.collectMoney()
     }
 }

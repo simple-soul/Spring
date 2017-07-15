@@ -12,16 +12,12 @@ import javax.servlet.http.HttpServletResponse
 @Controller
 class TestController
 {
-    @RequestMapping(value = "/hello")
-    fun handleRequest(@Autowired studentService: StudentService): ModelAndView
-    {
-        var studentList = ArrayList<Student>()
-        studentList.add(Student("小明"))
-        studentService.transferAccount()
 
-        var mav  = ModelAndView()
+    @RequestMapping(value = "/hello")
+    fun handleRequest(request: HttpServletRequest, response: HttpServletResponse): ModelAndView
+    {
+        val mav  = ModelAndView()
         //相当于request中的setAttribute，在jsp页面中获取
-        mav.addObject("studentList", studentList)
         mav.addObject("title", "我是标题")
 
         //指定视图
