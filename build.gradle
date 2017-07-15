@@ -59,5 +59,8 @@ dependencies {
     compile "javax.servlet:servlet-api:2.5"
     compile "javax.servlet.jsp:jsp-api:2.2"
 
+    //mybatis
+    compile "org.mybatis:mybatis:3.4.4"
+
     testCompile "junit:junit:4.12"
 }

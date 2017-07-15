@@ -39,6 +39,7 @@
           <element id="library" level="project" name="Gradle: org.aspectj:aspectjweaver:1.8.9" />
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.2-5" />
           <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mybatis/mybatis/3.4.4/31f6ee836efc0a69e07d44f71deb0b0b4fd0f0c4/mybatis-3.4.4.jar" />
         </element>
       </element>
     </root>
