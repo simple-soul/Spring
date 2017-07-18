@@ -1,18 +1,16 @@
 package com.kotlin.Dao
 
 import com.kotlin.Bean.User
-import com.kotlin.annotations.Bean
 import com.kotlin.utils.DBUtils
 import com.mchange.v2.c3p0.ComboPooledDataSource
-import com.mchange.v2.c3p0.DataSources
+import org.apache.ibatis.io.Resources
+import org.apache.ibatis.session.SqlSession
+import org.apache.ibatis.session.SqlSessionFactoryBuilder
 import org.junit.Test
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import org.springframework.stereotype.Component
 import org.springframework.stereotype.Repository
 import java.sql.ResultSet
-import javax.annotation.Resource
 
 /**
  * Created by simple_soul on 2017/6/21.
@@ -21,7 +19,8 @@ import javax.annotation.Resource
 @Repository(value = "studentDao")
 open class StudentDao
 {
-    @Resource(name = "template") lateinit var template: JdbcTemplate
+//    @Resource(name = "template") lateinit var template: JdbcTemplate
+    val template = JdbcTemplate(DBUtils())
 
     fun payMoney()
     {
@@ -39,7 +38,8 @@ open class StudentDao
 @Repository(value = "usersDao")
 open class UsersDao
 {
-    @Resource(name="template")private lateinit var template: JdbcTemplate
+    //    @Resource(name="template")private lateinit var template: JdbcTemplate
+    val template = JdbcTemplate(DBUtils())
 
     fun add()
     {
@@ -124,6 +124,78 @@ open class UsersDao
         dataSources.jdbcUrl = "jdbc:mysql://localhost:3306/test"
         dataSources.user = "root"
         dataSources.password = "gg123456"
+    }
+
+    @Test
+    fun findUserById()
+    {
+        //从配置文件读取流
+        val input = Resources.getResourceAsStream("config/mybatis/configuration.xml")
+
+        //创建会话工厂
+        val sqlSessionFactory = SqlSessionFactoryBuilder().build(input)
+
+        //创建会话
+        sqlSessionFactory.openSession().use {
+            val userMapper = it.getMapper(UserMapper::class.java)
+            println(userMapper.findUserById(1))
+        }
+
+        //操作数据库
+        //statement为映射文件中指定的id，parameter为参数，<>中为返回值类型
+//        val user = sqlSession.selectOne<User>("test.findUserById", 1)
+//
+//        println("\n$user")
+//
+//        //释放资源
+//        sqlSession.close()
+
+
+    }
+
+    @Test
+    fun findUserByName()
+    {
+        //从配置文件读取流
+        val input = Resources.getResourceAsStream("config/mybatis/configuration.xml")
+        //创建会话工厂
+        val sqlSessionFactory = SqlSessionFactoryBuilder().build(input)
+
+        sqlSessionFactory.openSession().use {
+            val list = it.selectList<List<User>>("test.findUserByName", "小")
+            println(list)
+        }
+
+    }
+
+    @Test
+    fun insertUser()
+    {
+        var sqlSession:SqlSession? =  null
+        //从配置文件读取流
+        try
+        {
+            val input = Resources.getResourceAsStream("config/mybatis/configuration.xml")
+            //创建会话工厂
+            val sqlSessionFactory = SqlSessionFactoryBuilder().build(input)
+            //创建会话
+            sqlSession = sqlSessionFactory.openSession()
+
+            val user = User("tom", 54)
+            val result = sqlSession.insert("test.insertUser", user)
+            sqlSession.commit()
+            println("\n$result")
+            println("id=${user.id}")
+        }
+        catch (e: Exception)
+        {
+            println(e)
+        }
+        finally
+        {
+            //释放资源
+            sqlSession!!.close()
+        }
     }
 }
 

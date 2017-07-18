@@ -69,6 +69,8 @@ data class MyBook(var name: String)
 @Component(value = "user")
 data class User(var name: String, var age: Int)
 {
+    var id: Int? = null
+
     fun add(): String
     {
         println("user add")
