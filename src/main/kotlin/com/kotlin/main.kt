@@ -1,10 +1,11 @@
 package com.kotlin
 
-import com.kotlin.Bean.Book
-import com.kotlin.Bean.Student
+
+import com.kotlin.Bean.User
+import com.kotlin.Dao.UserMapper
 import com.kotlin.Service.StudentService
 import org.junit.Test
-import org.springframework.context.support.FileSystemXmlApplicationContext
+import org.springframework.context.support.ClassPathXmlApplicationContext
 
 /**
  * Created by simple_soul on 2017/6/21.
@@ -16,18 +17,19 @@ class main
     fun test()
     {
         //加载Spring配置文件，创建对象
-        val context = FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml")
+        val context = ClassPathXmlApplicationContext("config/spring/applicationContext.xml")
+        //service的id
 
-//        val student = context.getBean("student") as Student
-//        println(student)
-//        student.print()
+//        println(File("/").absolutePath)
+//        println(File(".").absolutePath)
+//        val studentService = context.getBean("studentService") as StudentService
+//        studentService.account()
 
+        val userMapper = context.getBean("userMapper") as UserMapper
+        userMapper.insertUser(User("jerry",46))
 
-        val service = context.getBean("studentService") as StudentService
-        service.add()
-
-//        val book = context.getBean("book") as Book
-//        book.add()
+//        val user = context.getBean("user") as User
+//        user.add()
 
     }
 }

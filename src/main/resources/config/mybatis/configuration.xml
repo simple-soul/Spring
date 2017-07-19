@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<properties resource="db.properties"/>-->
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+        <package name="com.kotlin.Bean"/>
+    </typeAliases>
+    <!--加载映射文件-->
+    <mappers>
+
+        <!--<mapper class="com.kotlin.Dao.UserMapper"/>-->
+
+        <mapper resource="config/mybatis/sqlmap/UserMapper.xml"/>
+        <!--<package name="com.kotlin.Dao"/>-->
+    </mappers>
+</configuration>

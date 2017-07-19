@@ -4,23 +4,22 @@ import com.kotlin.Dao.StudentDao
 import com.kotlin.annotations.Bean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import javax.annotation.Resource
 
 /**
  * Created by simple_soul on 2017/6/21.
  */
 
-@Bean
 @Service(value = "studentService")
-data class StudentService(var s: String)
+open class StudentService
 {
-//    @Autowired lateinit var dao: StudentDao
+    @Autowired lateinit var studentDao: StudentDao
 
-    @Resource(name = "studentDao") lateinit var dao: StudentDao
-
-    fun add()
+    fun account()
     {
-        dao.add()
-        println("add in service")
+        studentDao.payMoney()
+
+        studentDao.collectMoney()
     }
 }

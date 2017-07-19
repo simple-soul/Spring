@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--对sql进行分类隔离,指定对应的mapper接口-->
+<mapper namespace="com.kotlin.Dao.UserMapper">
+    <!--配置sql语句-->
+    <!--id: 将sql封装到mappedStatement对象中，id为statement的id-->
+    <!--#{}为占位符，相当于?（用简单类型时，大括号内随意）-->
+    <select id="findUserById" parameterType="Int" resultType="user">
+        SELECT * FROM USER WHERE id=#{id}
+    </select>
+
+    <!--${}可以将其中的内容不加修饰的写入（使用简单类型只能用value）（sql注入问题）-->
+    <select id="findUserByName" parameterType="String" resultType="user">
+        SELECT * FROM USER WHERE NAME LIKE '%${value}%'
+    </select>
+
+    <!--用对象时需要全路径名，且参数要与bean的属性名对应-->
+    <insert id="insertUser" parameterType="user">
+        <!--selectKey返回自增id-->
+        <!--<selectKey keyProperty="id" order="AFTER" resultType="Int">-->
+            <!--SELECT LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+        INSERT INTO user(name,age,money) VALUE(#{name},#{age},#{money})
+    </insert>
+
+
+</mapper>

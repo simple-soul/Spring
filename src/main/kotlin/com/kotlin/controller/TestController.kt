@@ -1,21 +1,24 @@
 package com.kotlin.controller
 
 import com.kotlin.Bean.Student
+import com.kotlin.Service.StudentService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Controller
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.servlet.ModelAndView
-import org.springframework.web.servlet.mvc.Controller
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
-class TestController : Controller
+@Controller
+class TestController
 {
-    override fun handleRequest(request: HttpServletRequest?, response: HttpServletResponse?): ModelAndView
-    {
-        var studentList = ArrayList<Student>()
-        studentList.add(Student("小明"))
 
-        var mav  = ModelAndView()
+    @RequestMapping(value = "/hello")
+    fun handleRequest(request: HttpServletRequest, response: HttpServletResponse): ModelAndView
+    {
+        val mav  = ModelAndView()
         //相当于request中的setAttribute，在jsp页面中获取
-        mav.addObject("studentList", studentList)
+        mav.addObject("title", "我是标题")
 
         //指定视图
         mav.viewName = "index.jsp"

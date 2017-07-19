@@ -6,17 +6,20 @@
 
     <!--springmvc前段控制器配置-->
     <servlet>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <!--配置springmvc加载的配置文件(处理器、映射器、适配器等)-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>WEB-INF/dispatcher-servlet.xml</param-value>
+            <param-value>classpath*:config/spring/dispatcher-servlet.xml</param-value>
         </init-param>
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+
+
 </web-app>
