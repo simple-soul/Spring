@@ -9,4 +9,6 @@ import com.kotlin.Bean.User
 interface UserMapper
 {
     fun findUserById(id: Int): User
+
+    fun insertUser(user: User)
 }

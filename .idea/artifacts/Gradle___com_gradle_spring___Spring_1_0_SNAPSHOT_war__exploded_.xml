@@ -14,7 +14,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="Spring_main" />
-          <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
+          <element id="dir-copy" path="$PROJECT_DIR$/out/production/resources" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.3-2" />
@@ -52,6 +52,11 @@
           <element id="library" level="project" name="Gradle: org.apache.ant:ant:1.9.6" />
           <element id="library" level="project" name="Gradle: org.jetbrains:annotations:13.0" />
           <element id="library" level="project" name="Gradle: org.apache.ant:ant-launcher:1.9.6" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-mapper-asl/1.9.13/1ee2f2bed0e5dd29d1cb155a166e6f8d50bbddb7/jackson-mapper-asl-1.9.13.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.jackson/jackson-core-asl/1.9.13/3c304d70f42f832e0a86d45bd437f692129299a4/jackson-core-asl-1.9.13.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.8.9/4dfca3975be3c1a98eacb829e70f02e9a71bc159/jackson-databind-2.8.9.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.8.9/e0e758381a6579cb2029dace23a7209b90ac7232/jackson-annotations-2.8.9.jar" />
+          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.9/569b1752705da98f49aabe2911cc956ff7d8ed9d/jackson-core-2.8.9.jar" />
         </element>
       </element>
     </root>

@@ -70,6 +70,7 @@ data class MyBook(var name: String)
 data class User(var name: String, var age: Int)
 {
     var id: Int? = null
+    var money: Int? = null
 
     fun add(): String
     {

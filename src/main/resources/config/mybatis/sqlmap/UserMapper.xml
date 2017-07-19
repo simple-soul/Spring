@@ -19,10 +19,10 @@
     <!--用对象时需要全路径名，且参数要与bean的属性名对应-->
     <insert id="insertUser" parameterType="user">
         <!--selectKey返回自增id-->
-        <selectKey keyProperty="id" order="AFTER" resultType="Int">
-            SELECT LAST_INSERT_ID()
-        </selectKey>
-        INSERT INTO user(name,age) VALUE(#{name},#{age})
+        <!--<selectKey keyProperty="id" order="AFTER" resultType="Int">-->
+            <!--SELECT LAST_INSERT_ID()-->
+        <!--</selectKey>-->
+        INSERT INTO user(name,age,money) VALUE(#{name},#{age},#{money})
     </insert>
 
 

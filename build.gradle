@@ -66,6 +66,12 @@ dependencies {
     compile "javax.servlet:servlet-api:2.5"
     compile "javax.servlet.jsp:jsp-api:2.2"
 
+    //json转换的依赖
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+    compile "org.codehaus.jackson:jackson-core-asl:1.9.13"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.8.9"
+    compile "com.fasterxml.jackson.core:jackson-annotations:2.8.9"
+
     //mybatis
     compile "org.mybatis:mybatis:3.4.4"
     compile "asm:asm:3.3.1"

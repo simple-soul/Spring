@@ -1,6 +1,7 @@
 package com.kotlin
 
 
+import com.kotlin.Bean.User
 import com.kotlin.Dao.UserMapper
 import com.kotlin.Service.StudentService
 import org.junit.Test
@@ -25,7 +26,7 @@ class main
 //        studentService.account()
 
         val userMapper = context.getBean("userMapper") as UserMapper
-        println(userMapper.findUserById(1))
+        userMapper.insertUser(User("jerry",46))
 
 //        val user = context.getBean("user") as User
 //        user.add()
